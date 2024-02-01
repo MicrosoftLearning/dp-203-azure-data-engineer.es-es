@@ -61,10 +61,21 @@ Antes de automatizar un proceso de transformación de datos con un cuaderno, pue
 5. Expande la cuenta de almacenamiento y comprueba que contiene un contenedor del sistema de archivos denominados **archivos (principal)**.
 6. Selecciona el contenedor de archivos y ten en cuenta que contiene una carpeta denominada **data**, que contiene los archivos de datos que vas a transformar.
 7. Abre la carpeta **data*** y ve los archivos CSV que contiene. Haz clic con el botón derecho en cualquiera de los archivos y selecciona **Vista previa** para ver un ejemplo de los datos. Cierra la vista previa cuando termine.
-8. En Synapse Studio, en la página **Desarrollar**, expande **Cuadernos** y abre el cuaderno  de **transformación de Spark**.
+8. Haz clic con el botón derecho en cualquiera de los archivos y selecciona **Vista previa** para ver los datos que contiene. Ten en cuenta que los archivos contienen una fila de encabezado, por lo que puedes seleccionar la opción de mostrar los encabezados de columna.
+9. Cierre la vista preliminar. A continuación, descargue **Spark Transform.ipynb** [desde Allfiles/labs/11/notebooks](https://github.com/MicrosoftLearning/dp-203-azure-data-engineer/tree/master/Allfiles/labs/11/notebooks)
 
-    > **Nota**: Si el cuaderno no se carga durante el script de ejecución, debes descargar de GitHub de [Allfiles/labs/11/notebooks](https://github.com/MicrosoftLearning/dp-203-azure-data-engineer/tree/master/Allfiles/labs/11/notebooks) el archivo denominado Spark Transform.ipynb y subirlo a Synapse.
+    > **Nota**: Es mejor copiar este texto con ***Ctrl+a*** y luego ***Ctrl+c*** y pegarlo en una herramienta con ***Ctrl+v***, como por ejemplo, el cuaderno y luego con archivo, guardar como **Spark Transform.ipynb** con el tipo de archivo ***Todos los archivos***. También tiene la opción de seleccionar el archivo en GitHub y, a continuación, seleccionar los puntos suspensivos y, después, seleccionar descargarlo y guardarlo en una ubicación que pueda recordar. 
+    ![descargar el archivo del cuaderno desde GitHub](./images/select-download-notebook.png)
 
+10 A continuación, en la página **Desarrollar**, expanda **Cuadernos** y haga clic en las opciones + Importar
+
+    ![Spark Notebook import](./image/../images/spark-notebook-import.png)
+        
+12. Selecciona el archivo que acabas de descargar y guardar como **Spark Transfrom.ipynb**.
+13. Asocia el cuaderno a tu grupo **spark*xxxxxxx*** de Spark.
+14. Revisa las notas del cuaderno y ejecuta las celdas de código.
+
+    > **Nota**: La primera celda de código tardará unos minutos en ejecutarse porque debe iniciarse el grupo de Spark. Las células posteriores se ejecutarán más rápido.
 9. Revisa el código que contiene el cuaderno, teniendo en cuenta que:
     - Establece una variable para definir un nombre de carpeta único.
     - Carga los datos del pedido de ventas CSV desde la carpeta **/data**.
@@ -99,8 +110,9 @@ Ahora que comprendes el proceso de transformación, estás listo para automatiza
 
     ![Captura de pantalla de una canalización con una actividad de cuaderno.](images/notebook-pipeline.png)
 
-4. En la pestaña **General** de la actividad de cuaderno, cambie su nombre por **Ejecutar transformación de Spark**.
-5. En la pestaña **Configuración** de la actividad de cuaderno, establece las siguientes propiedades:
+4. 
+5. En la pestaña **General** de la actividad de cuaderno, cambie su nombre por **Ejecutar transformación de Spark**.
+6. En la pestaña **Configuración** de la actividad de cuaderno, establece las siguientes propiedades:
     - **Cuaderno**: selecciona el cuaderno **Transformación de Spark**.
     - **Parámetros base**: expande esta sección y define un parámetro con la siguiente configuración:
         - **Nombre**: folderName
