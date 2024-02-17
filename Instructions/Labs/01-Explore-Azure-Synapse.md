@@ -16,35 +16,35 @@ Necesitará una [suscripción de Azure](https://azure.microsoft.com/free) en la 
 
 ## Aprovisionar un área de trabajo de Azure Synapse Analytics
 
-Un *área de trabajo*de Azure Synapse Analytics proporciona un punto central para administrar los entornos de ejecución de procesamiento de datos y datos. Puedes aprovisionar un área de trabajo mediante la interfaz interactiva en Azure Portal, o bien puedes implementar un área de trabajo y recursos dentro de ella mediante un script o una plantilla. En la mayoría de los escenarios de producción, es mejor automatizar el aprovisionamiento con la CLI para poder incorporar la implementación de recursos en un proceso de desarrollo y operaciones repetibles (*DevOps*).
+Un *área de trabajo* de Azure Synapse Analytics proporciona un punto central para administrar datos y entornos de ejecución de procesamiento de datos. Puedes aprovisionar un área de trabajo mediante la interfaz interactiva en Azure Portal, o bien, puedes implementar un área de trabajo y recursos dentro de él mediante un script o una plantilla. En la mayoría de los escenarios de producción, es mejor automatizar el aprovisionamiento con scripts para poder incorporar la implementación de recursos en un proceso de desarrollo y operaciones repetibles (*DevOps*).
 
 En este ejercicio, usarás una combinación de un script de PowerShell y una plantilla de ARM para aprovisionar Azure Synapse Analytics.
 
 1. En un explorador, inicia sesión en [Azure Portal](https://portal.azure.com) en `https://portal.azure.com`.
-2. Usa el botón **[\>_]** situado a la derecha de la barra de búsqueda en la parte superior de la página para crear una nueva instancia de Cloud Shell en Azure Portal, para lo que deberás seleccionar un entorno de ***Bash*** y crear almacenamiento si se solicita. Cloud Shell proporciona una interfaz de línea de comandos en un panel situado en la parte inferior de Azure Portal, como se muestra a continuación:
+2. Usa el botón **[\>_]** a la derecha de la barra de búsqueda en la parte superior de la página para crear un nuevo Cloud Shell en Azure Portal, selecciona un entorno de ***PowerShell*** y crea almacenamiento si se te solicita. Cloud Shell proporciona una interfaz de línea de comandos en un panel situado en la parte inferior de Azure Portal, como se muestra a continuación:
 
     ![Azure Portal con un panel de Cloud Shell](./images/cloud-shell.png)
 
-    > **Nota**: si has creado previamente un Cloud Shell que usa un entorno *de Bash*, usa el menú desplegable situado en la parte superior izquierda del panel de Cloud Shell para cambiarlo a ***PowerShell***.
+    > **Nota**: Si creaste anteriormente un Cloud Shell que usa un entorno de *Bash*, usa el menú desplegable situado en la parte superior izquierda del panel de Cloud Shell para cambiarlo a ***PowerShell***.
 
 3. Tenga en cuenta que puede cambiar el tamaño de Cloud Shell arrastrando la barra de separación en la parte superior del panel, o usando los iconos **&#8212;** , **&#9723;** y **X** en la parte superior derecha para minimizar, maximizar y cerrar el panel. Para obtener más información sobre el uso de Azure Cloud Shell, consulte la [documentación de Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
 
-4. En el panel de PowerShell, escribe los siguientes comandos para clonar este repositorio:
+4. En el panel de PowerShell, esscribe los siguientes comandos para clonar este repositorio:
 
     ```
     rm -r dp-203 -f
     git clone https://github.com/MicrosoftLearning/dp-203-azure-data-engineer dp-203
     ```
 
-5. Una vez clonado el repositorio, escribe los siguientes comandos para cambiar a la carpeta de este laboratorio y ejecuta el script **setup.ps1** que contiene:
+5. Una vez clonado el repositorio, escribe los siguientes comandos para cambiar a la carpeta de este ejercicio y ejecutar el script **setup.ps1** que contiene:
 
     ```
     cd dp-203/Allfiles/labs/01
     ./setup.ps1
     ```
 
-6. Si se solicita, elija la suscripción que quieres usar (esto solo ocurrirá si tienes acceso a varias suscripciones de Azure).
-7. Cuando se solicite, escribe una contraseña adecuada que se va a establecer para el grupo de SQL de Azure Synapse.
+6. Si se solicita, elige la suscripción que quieres usar (esto solo ocurrirá si tienes acceso a varias suscripciones de Azure).
+7. Cuando se te solicite, escribe una contraseña adecuada que se va a establecer para el grupo de SQL de Azure Synapse.
 
     > **Nota**: asegúrate de recordar esta contraseña. Además, la contraseña no puede contener todo o parte del nombre de inicio de sesión.
 
@@ -73,8 +73,6 @@ En este ejercicio, usarás una combinación de un script de PowerShell y una pla
         - **sql*xxxxxxx***: un grupo de SQL *dedicado* que hospeda una base de datos de almacenamiento de datos relacional.
     - **Grupos de Apache Spark**:
         - **spark*xxxxxxx***: que puedes usar a petición para explorar o procesar datos en un lago de datos con lenguajes de programación como Scala o Python.
-<!---    - **Data Explorer pools**:
-        - **adx*xxxxxxx***: A Data Explorer pool that you can use to analyze data by using Kusto Query Language (KQL). --->
 
 ## Ingesta de datos con una canalización
 
@@ -439,4 +437,4 @@ Ahora que ha terminado de explorar Azure Synapse Analytics, debe eliminar los re
 4. En la parte superior de la página **Información general** del grupo de recursos, seleccione **Eliminar grupo de recursos**.
 5. Especifica el nombre del grupo de recursos **dp203-*xxxxxxx*** para confirmar que quieres eliminarlo y selecciona **Eliminar**.
 
-    Después de unos minutos, tu grupo de recursos de área de trabajo de Azure Synapse y el grupo de recursos de área de trabajo administrada asociada a él se eliminarán.
+    Después de unos minutos, se eliminarán el grupo de recursos de área de trabajo de Azure Synapse y el grupo de recursos de área de trabajo administrado asociado a él.
