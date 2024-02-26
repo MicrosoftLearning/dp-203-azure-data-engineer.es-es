@@ -65,7 +65,7 @@ En este ejercicio, usarás una combinación de un script de PowerShell y una pla
 9. Haz clic con el botón derecho en cualquiera de los archivos y selecciona **Vista previa** para ver los datos que contiene. Ten en cuenta que los archivos contienen una fila de encabezado, por lo que puedes seleccionar la opción de mostrar los encabezados de columna.
 10. Cierre la vista preliminar. A continuación, descargue **Spark Transform.ipynb** desde [Allfiles/labs/06/notebooks](https://github.com/MicrosoftLearning/dp-203-azure-data-engineer/tree/master/Allfiles/labs/06/notebooks)
 
-    > **Nota**: Es mejor copiar este texto con ***Ctrl+a*** y luego ***Ctrl+c*** y pegarlo en una herramienta con ***Ctrl+v***, como por ejemplo, el cuaderno y luego con archivo, guardar como **Spark Transform.ipynb** con el tipo de archivo ***Todos los archivos***. También puede descargar el archivo haciendo clic en él, seleccionando los puntos suspensivos y, a continuación, descargarlo; debe recordar dónde lo guardó.
+    > **Nota**: Es mejor copiar este texto con ***Ctrl+a*** y luego ***Ctrl+c*** y pegarlo en una herramienta con ***Ctrl+v***, como por ejemplo, el cuaderno y luego con archivo, guardar como **Spark Transform.ipynb** con el tipo de archivo ***Todos los archivos***. También puede descargar el archivo haciendo clic sobre él, seleccionando los puntos suspensivos (...) y luego descargándolo, recordando dónde lo guardó.
     ![Descarga del cuaderno de Spark desde GitHub](./images/select-download-notebook.png)
 
 11. Después, en la página **Desarrollar**, despliega **Cuaderno** y haz clic en las opciones + Importar
