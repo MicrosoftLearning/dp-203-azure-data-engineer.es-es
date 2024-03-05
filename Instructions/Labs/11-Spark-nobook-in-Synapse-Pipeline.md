@@ -64,7 +64,7 @@ Antes de automatizar un proceso de transformación de datos con un cuaderno, pue
 8. Haz clic con el botón derecho en cualquiera de los archivos y selecciona **Vista previa** para ver los datos que contiene. Ten en cuenta que los archivos contienen una fila de encabezado, por lo que puedes seleccionar la opción de mostrar los encabezados de columna.
 9. Cierre la vista preliminar. A continuación, descargue **Spark Transform.ipynb** [desde Allfiles/labs/11/notebooks](https://github.com/MicrosoftLearning/dp-203-azure-data-engineer/tree/master/Allfiles/labs/11/notebooks)
 
-    > **Nota**: Es mejor copiar este texto con ***Ctrl+a*** y luego ***Ctrl+c*** y pegarlo en una herramienta con ***Ctrl+v***, como por ejemplo, el cuaderno y luego con archivo, guardar como **Spark Transform.ipynb** con el tipo de archivo ***Todos los archivos***. También tiene la opción de seleccionar el archivo en GitHub y, a continuación, seleccionar los puntos suspensivos y, después, seleccionar descargarlo y guardarlo en una ubicación que pueda recordar. 
+    > **Nota**: Es mejor copiar este texto con ***Ctrl+a*** y luego ***Ctrl+c*** y pegarlo en una herramienta con ***Ctrl+v***, como por ejemplo, el cuaderno y luego con archivo, guardar como **Spark Transform.ipynb** con el tipo de archivo ***Todos los archivos***. También tiene la opción de seleccionar el archivo en GitHub y, a continuación, seleccionar los puntos suspensivos (...) y, después, seleccionar **Descargar**, guardarlo en una ubicación que pueda recordar. 
     ![descargar el archivo del cuaderno desde GitHub](./images/select-download-notebook.png)
 
 10 A continuación, en la página **Desarrollar**, expanda **Cuadernos** y haga clic en las opciones + Importar
