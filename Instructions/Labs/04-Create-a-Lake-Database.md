@@ -21,22 +21,22 @@ Para admitir una base de datos de lago, necesita un área de trabajo de Azure Sy
 En este ejercicio, usarás una combinación de un script de PowerShell y una plantilla de ARM para aprovisionar un área de trabajo de Azure Synapse Analytics.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) en `https://portal.azure.com`.
-2. Usa el botón **[\>_]** situado a la derecha de la barra de búsqueda en la parte superior de la página para crear una nueva instancia de Cloud Shell en Azure Portal, para lo que deberás seleccionar un entorno de ***Bash*** y crear almacenamiento si se solicita. Cloud Shell proporciona una interfaz de línea de comandos en un panel situado en la parte inferior de Azure Portal, como se muestra a continuación:
+2. Usa el botón **[\>_]** situado a la derecha de la barra de búsqueda en la parte superior de la página para crear una nueva instancia de Cloud Shell en Azure Portal, para lo que deberás seleccionar un entorno de ***PowerShell*** y crear almacenamiento si se solicita. Cloud Shell proporciona una interfaz de línea de comandos en un panel situado en la parte inferior de Azure Portal, como se muestra a continuación:
 
     ![Azure Portal con un panel de Cloud Shell](./images/cloud-shell.png)
 
-    > **Nota**: si has creado previamente un Cloud Shell que usa un entorno de *Bash*, usa el menú desplegable situado en la parte superior izquierda del panel de Cloud Shell para cambiarlo a ***PowerShell***.
+    > **Nota**: Si ha creado previamente un cloud shell que usa un entorno de *Bash*, use el menú desplegable de la parte superior izquierda del panel de cloud shell para cambiarlo a ***PowerShell***.
 
 3. Tenga en cuenta que puede cambiar el tamaño de Cloud Shell arrastrando la barra de separación en la parte superior del panel, o usando los iconos **&#8212;** , **&#9723;** y **X** en la parte superior derecha para minimizar, maximizar y cerrar el panel. Para obtener más información sobre el uso de Azure Cloud Shell, consulte la [documentación de Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
 
-4. En el panel de PowerShell, escribe los siguientes comandos para clonar este repositorio:
+4. En el panel de PowerShell, esscribe los siguientes comandos para clonar este repositorio:
 
     ```
     rm -r dp-203 -f
     git clone https://github.com/MicrosoftLearning/dp-203-azure-data-engineer dp-203
     ```
 
-5. Una vez clonado el repositorio, escribe los siguientes comandos para cambiar a la carpeta de este laboratorio y ejecuta el script **setup.ps1** que contiene:
+5. Una vez clonado el repositorio, escribe los siguientes comandos para cambiar a la carpeta de este ejercicio y ejecutar el script **setup.ps1** que contiene:
 
     ```
     cd dp-203/Allfiles/labs/04
@@ -44,16 +44,16 @@ En este ejercicio, usarás una combinación de un script de PowerShell y una pla
     ```
 
 6. Si se solicita, elige la suscripción que quieres usar (esto solo ocurrirá si tienes acceso a varias suscripciones de Azure).
-7. Cuando se solicite, escribe una contraseña adecuada que se va a establecer para el grupo de Azure Synapse SQL.
+7. Cuando se te solicite, escribe una contraseña adecuada que se va a establecer para el grupo de SQL de Azure Synapse.
 
-    > **Nota**: asegúrate de recordar esta contraseña.
+    > **Nota**: Asegúrate de recordar esta contraseña.
 
 8. Espera a que se complete el script: normalmente tarda unos 10 minutos, pero en algunos casos puede tardar más. Mientras esperas, revisa los artículos sobre las [base de datos de lago](https://docs.microsoft.com/azure/synapse-analytics/database-designer/concepts-lake-database)y [plantillas de base de datos de lago](https://docs.microsoft.com/azure/synapse-analytics/database-designer/concepts-database-templates) en la documentación de Azure Synapse Analytics.
 
 ## Modificación de los permisos del contenedor
 
-1. Una vez completado el script de implementación, en Azure Portal, vaya al grupo de recursos **dp203-*xxxxxxx*** que creó y observa que este grupo de recursos contiene el área de trabajo de Synapse, una cuenta de almacenamiento para el lago de datos y un grupo de Apache Spark.
-1. Selecciona la **cuenta de almacenamiento** del lago de datos denominado **datalakexxxxxxx** 
+1. Una vez finalizada la secuencia de comandos de implementación, en Azure Portal, vaya al grupo de recursos **dp203-*xxxxxxx*** que ha creado y observe que este grupo de recursos contiene su área de trabajo de Synapse, una cuenta de almacenamiento para su lago de datos y un grupo de Apache Spark.
+1. Seleccione la **Cuenta de almacenamiento** para su lago de datos denominada **datalakexxxxxxx** 
 
      ![Navegación del lago de datos al contenedor](./images/datalakexxxxxx-storage.png)
 
@@ -61,7 +61,7 @@ En este ejercicio, usarás una combinación de un script de PowerShell y una pla
 
     ![Selección de la carpeta de archivos en el contenedor de lago de datos](./images/dp203-Container.png)
 
-1. En la **carpeta de archivos**, observarás el **método de autenticación:** aparece como ***Clave de acceso (Cambiar a la cuenta de usuario de Azure AD)***; haz clic en esta opción para cambiar a la cuenta de usuario de Azure AD.
+1. Dentro de la **carpeta de archivos** observará que el **Método de autenticación:** aparece en la lista como ***Clave de acceso (cambiar a cuenta de usuario de Entra)*** haga clic en ella para cambiar a cuenta de usuario de Entra.
 
     ![Cambia a la cuenta de usuario de Azure AD.](./images/dp203-switch-to-aad-user.png)
 ## Creación de una base de datos de lago
@@ -91,24 +91,24 @@ Ahora que has creado una base de datos de lago, puedes definir su esquema median
 
     | Nombre | Claves | Descripción | Nulabilidad | Tipo de datos | Formato / Duración |
     | ---- | ---- | ----------- | ----------- | --------- | --------------- |
-    | CustomerID | PK &#128505; | Id. de cliente único | &#128454;  | long | |
+    | CustomerId | PK &#128505; | Id. de cliente único | &#128454;  | long | |
 
 5. En la lista **+ Columna**, selecciona **Nueva columna** y modifica la definición de la nueva columna para agregar una columna **Nombre** a la tabla de la siguiente manera:
 
     | Nombre | Claves | Descripción | Nulabilidad | Tipo de datos | Formato / Duración |
     | ---- | ---- | ----------- | ----------- | --------- | --------------- |
-    | CustomerID | PK &#128505; | Id. de cliente único | &#128454;  | long | |
-    | **FirstName** | **PK &#128454;** | **Nombre del cliente** | **&#128454;** | **string** | **256** |
+    | CustomerId | PK &#128505; | Id. de cliente único | &#128454;  | long | |
+    | **Nombre** | **PK &#128454;** | **Nombre del cliente** | **&#128454;** | **string** | **256** |
 
 6. Agrega más columnas nuevas hasta que la definición de la tabla tenga este aspecto:
 
     | Nombre | Claves | Descripción | Nulabilidad | Tipo de datos | Formato / Duración |
     | ---- | ---- | ----------- | ----------- | --------- | --------------- |
-    | CustomerID | PK &#128505; | Id. de cliente único | &#128454;  | long | |
-    | FirstName | PK &#128454; | Nombre del cliente | &#128454; | cadena | 256 |
-    | Apellidos | PK &#128454; | Apellidos del cliente | &#128505; | cadena | 256 |
-    | EmailAddress | PK &#128454; | Correo electrónico del cliente | &#128454; | cadena | 256 |
-    | Teléfono | PK &#128454; | Teléfono del cliente | &#128505; | cadena | 256 |
+    | CustomerId | PK &#128505; | Id. de cliente único | &#128454;  | long | |
+    | Nombre | PK &#128454; | Nombre del cliente | &#128454; | string | 256 |
+    | Apellidos | PK &#128454; | Apellidos del cliente | &#128505; | string | 256 |
+    | EmailAddress | PK &#128454; | Correo electrónico del cliente | &#128454; | string | 256 |
+    | Teléfono | PK &#128454; | Teléfono del cliente | &#128505; | string | 256 |
 
 7. Cuando hayas agregado todas las columnas, vuelve a publicar la base de datos para guardar los cambios.
 8. En el panel **Datos** de la izquierda, vuelve a la pestaña **Área de trabajo** para que puedas ver la base de datos del lago **RetailDB**. A continuación, expándela y actualiza su carpeta **Tablas** para ver la tabla **Customer** recién creada.
@@ -147,22 +147,22 @@ Como has visto, puedes crear las tablas que necesitas en la base de datos del la
     | Nombre | Claves | Descripción | Nulabilidad | Tipo de datos | Formato / Duración |
     | ---- | ---- | ----------- | ----------- | --------- | --------------- |
     | ProductId | PK &#128505; | El identificador único de un producto. | &#128454;  | long | |
-    | ProductName | PK &#128454; | El nombre del producto... | &#128505; | cadena | 128 |
+    | ProductName | PK &#128454; | El nombre del producto... | &#128505; | string | 128 |
     | IntroductionDate | PK &#128454; | La fecha en que el producto se puso a la venta. | &#128505; | date | YYYY-MM-DD |
     | ActualAbandonmentDate | PK &#128454; | Fecha real en la que se retiró el marketing del producto... | &#128505; | date | AAAA-MM-DD |
     | ProductGrossWeight | PK &#128454; | El peso bruto del producto. | &#128505; | Decimal | 18.8 |
-    | ItemSku | PK &#128454; | Identificador de la unidad de mantenimiento de existencias... | &#128505; | cadena | 20 |
+    | ItemSku | PK &#128454; | Identificador de la unidad de mantenimiento de existencias... | &#128505; | string | 20 |
 
 8. Agrega una nueva columna denominada **ListPrice** a la tabla como se muestra aquí:
 
     | Nombre | Claves | Descripción | Nulabilidad | Tipo de datos | Formato / Duración |
     | ---- | ---- | ----------- | ----------- | --------- | --------------- |
     | ProductId | PK &#128505; | El identificador único de un producto. | &#128454;  | long | |
-    | ProductName | PK &#128454; | El nombre del producto... | &#128505; | cadena | 128 |
+    | ProductName | PK &#128454; | El nombre del producto... | &#128505; | string | 128 |
     | IntroductionDate | PK &#128454; | La fecha en que el producto se puso a la venta. | &#128505; | date | YYYY-MM-DD |
     | ActualAbandonmentDate | PK &#128454; | Fecha real en la que se retiró el marketing del producto... | &#128505; | date | AAAA-MM-DD |
     | ProductGrossWeight | PK &#128454; | El peso bruto del producto. | &#128505; | Decimal | 18.8 |
-    | ItemSku | PK &#128454; | Identificador de la unidad de mantenimiento de existencias... | &#128505; | cadena | 20 |
+    | ItemSku | PK &#128454; | Identificador de la unidad de mantenimiento de existencias... | &#128505; | string | 20 |
     | **ListPrice** | **PK &#128454;** | **El precio del producto.** | **&#128454;** | **decimal** | **18,2** |
 
 9. Cuando hayas modificado las columnas como se muestra anteriormente, vuelva a publicar la base de datos para guardar los cambios.
@@ -210,7 +210,7 @@ Hasta ahora, has creado tablas y, a continuación, las has rellenado con datos. 
     | SalesOrderId | PK &#128505; | El identificador único de un pedido. | &#128454;  | long | |
     | OrderDate | PK &#128454; | La fecha del pedido. | &#128454; | timestamp | yyyy-MM-dd |
     | LineItemId | PK &#128505; | El id. de un elemento de línea individual. | &#128454; | long | |
-    | CustomerID | PK &#128454; | El cliente. | &#128454; | long | |
+    | CustomerId | PK &#128454; | El cliente. | &#128454; | long | |
     | ProductId | PK &#128454; | El producto. | &#128454; | long | |
     | Cantidad | PK &#128454; | La cantidad del pedido. | &#128454; | long | |
 
@@ -220,7 +220,7 @@ Hasta ahora, has creado tablas y, a continuación, las has rellenado con datos. 
 
     | Desde la tabla | Desde la columna | Tabla de destino | A la columna |
     | ---- | ---- | ----------- | ----------- |
-    | Customer | CustomerID | Pedido de ventas | CustomerID |
+    | Customer | CustomerId | Pedido de ventas | CustomerId |
 
 6. Agrega una segunda relación *Tabla de destino* con la siguiente configuración:
 
@@ -289,4 +289,4 @@ Si ha terminado de explorar Azure Synapse Analytics, debe eliminar los recursos 
 4. En la parte superior de la página **Información general** del grupo de recursos, seleccione **Eliminar grupo de recursos**.
 5. Especifica el nombre del grupo de recursos **dp203-*xxxxxxx*** para confirmar que quieres eliminarlo y selecciona **Eliminar**.
 
-    Después de unos minutos, tu grupo de recursos del área de trabajo de Azure Synapse y el grupo de recursos del área de trabajo administrada asociada a él se eliminarán.
+    Después de unos minutos, se eliminarán el grupo de recursos de área de trabajo de Azure Synapse y el grupo de recursos de área de trabajo administrado asociado a él.
