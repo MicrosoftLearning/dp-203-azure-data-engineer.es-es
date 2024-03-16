@@ -67,29 +67,28 @@ Antes de automatizar un proceso de transformación de datos con un cuaderno, pue
     > **Nota**: Es mejor copiar este texto con ***Ctrl+a*** y luego ***Ctrl+c*** y pegarlo en una herramienta con ***Ctrl+v***, como por ejemplo, el cuaderno y luego con archivo, guardar como **Spark Transform.ipynb** con el tipo de archivo ***Todos los archivos***. También tiene la opción de seleccionar el archivo en GitHub y, a continuación, seleccionar los puntos suspensivos (...) y, después, seleccionar **Descargar**, guardarlo en una ubicación que pueda recordar. 
     ![descargar el archivo del cuaderno desde GitHub](./images/select-download-notebook.png)
 
-10 A continuación, en la página **Desarrollar**, expanda **Cuadernos** y haga clic en las opciones + Importar
-
-    ![Spark Notebook import](./image/../images/spark-notebook-import.png)
+10 Después, en la página **Desarrollar**, expanda **Cuadernos** y haga clic en las opciones de "+ Importar" ![Importar cuadernos de Spark](./images/spark-notebook-import.png)
+    
         
-12. Selecciona el archivo que acabas de descargar y guardar como **Spark Transfrom.ipynb**.
-13. Asocia el cuaderno a tu grupo **spark*xxxxxxx*** de Spark.
-14. Revisa las notas del cuaderno y ejecuta las celdas de código.
+1. Selecciona el archivo que acabas de descargar y guardar como **Spark Transfrom.ipynb**.
+2. Asocia el cuaderno a tu grupo **spark*xxxxxxx*** de Spark.
+3. Revisa las notas del cuaderno y ejecuta las celdas de código.
 
     > **Nota**: La primera celda de código tardará unos minutos en ejecutarse porque debe iniciarse el grupo de Spark. Las células posteriores se ejecutarán más rápido.
-9. Revisa el código que contiene el cuaderno, teniendo en cuenta que:
+4. Revisa el código que contiene el cuaderno, teniendo en cuenta que:
     - Establece una variable para definir un nombre de carpeta único.
     - Carga los datos del pedido de ventas CSV desde la carpeta **/data**.
     - Transforma los datos dividiendo el nombre del cliente en varios campos.
     - Guarda los datos transformados en formato Parquet en la carpeta con nombre único.
-10. En la barra de herramientas del cuaderno, adjunta el cuaderno al grupo de Spark **spark*xxxxxxx*** y luego usa el botón **▷ Ejecutar Todo** para ejecutar todas las celdas de código del cuaderno.
+5. En la barra de herramientas del cuaderno, adjunta el cuaderno al grupo de Spark **spark*xxxxxxx*** y luego usa el botón **▷ Ejecutar Todo** para ejecutar todas las celdas de código del cuaderno.
   
     La sesión de Spark puede tardar unos minutos en iniciarse antes de que se puedan ejecutar las celdas de código.
 
-11. Una vez ejecutadas todas las celdas del cuaderno, anota el nombre de la carpeta en la que se han guardado los datos transformados.
-12. Cambie a la  pestaña **archivos** (que todavía debe estar abierta) y ve la carpeta **files** raíz. Si es necesario, en el menú **Más**, selecciona **Actualizar** para ver la nueva carpeta. Después, ábrelo para comprobar que contiene archivos Parquet.
-13. Vuelva a la carpeta **archivos** raíz y después selecciona la carpeta con nombre única generada por el cuaderno y, en el menú ** Nuevo script SQL**, selecciona **Seleccionar las 100 primeras filas**.
-14. En el panel **Seleccionar las 100 primeras filas**, establece el tipo de archivo en el **formato Parquet** y aplica el cambio.
-15. En el nuevo panel de script de SQL que se abre, usa el botón **▷ Ejecutar** para ejecutar el código SQL y comprobar que devuelve los datos de pedidos de ventas transformados.
+6. Una vez ejecutadas todas las celdas del cuaderno, anota el nombre de la carpeta en la que se han guardado los datos transformados.
+7. Cambie a la  pestaña **archivos** (que todavía debe estar abierta) y ve la carpeta **files** raíz. Si es necesario, en el menú **Más**, selecciona **Actualizar** para ver la nueva carpeta. Después, ábrelo para comprobar que contiene archivos Parquet.
+8. Vuelva a la carpeta **archivos** raíz y después selecciona la carpeta con nombre única generada por el cuaderno y, en el menú ** Nuevo script SQL**, selecciona **Seleccionar las 100 primeras filas**.
+9. En el panel **Seleccionar las 100 primeras filas**, establece el tipo de archivo en el **formato Parquet** y aplica el cambio.
+10. En el nuevo panel de script de SQL que se abre, usa el botón **▷ Ejecutar** para ejecutar el código SQL y comprobar que devuelve los datos de pedidos de ventas transformados.
 
 ## Ejecución del cuaderno en una canalización
 
