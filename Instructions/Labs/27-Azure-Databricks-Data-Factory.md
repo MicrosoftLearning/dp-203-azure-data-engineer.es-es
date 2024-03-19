@@ -16,25 +16,27 @@ Necesitará una [suscripción de Azure](https://azure.microsoft.com/free) en la 
 
 ## Aprovisionamiento de los recursos de Azure
 
-En este ejercicio, usarás un script para aprovisionar un área de trabajo de Azure Databricks y un recurso de Azure Data Factory en la suscripción de Azure.
+En este ejercicio, usarás un script para aprovisionar una nueva área de trabajo de Azure Databricks y un recurso de Azure Data Factory en la suscripción de Azure.
 
-1. En un explorador, inicia sesión en [Azure Portal](https://portal.azure.com) en `https://portal.azure.com`.
+> **Sugerencia**: si ya tienes un área de trabajo de Azure Databricks *Estándar* o de *Evaluación*<u> y</u> un recurso de Azure Data Factory v2, puedes omitir este procedimiento.
+
+1. En un explorador web, inicia sesión en [Azure Portal](https://portal.azure.com) en `https://portal.azure.com`.
 2. Usa el botón **[\>_]** a la derecha de la barra de búsqueda en la parte superior de la página para crear un nuevo Cloud Shell en Azure Portal, selecciona un entorno de ***PowerShell*** y crea almacenamiento si se te solicita. Cloud Shell proporciona una interfaz de línea de comandos en un panel situado en la parte inferior de Azure Portal, como se muestra a continuación:
 
     ![Azure Portal con un panel de Cloud Shell](./images/cloud-shell.png)
 
-    > **Nota**: Si creaste anteriormente un Cloud Shell que use un entorno *Bash*, usa el menú desplegable de la parte superior izquierda del panel de Cloud Shell para cambiarlo a ***PowerShell***.
+    > **Nota**: Si creaste anteriormente un Cloud Shell que usa un entorno de *Bash*, usa el menú desplegable situado en la parte superior izquierda del panel de Cloud Shell para cambiarlo a ***PowerShell***.
 
 3. Tenga en cuenta que puede cambiar el tamaño de Cloud Shell arrastrando la barra de separación en la parte superior del panel, o usando los iconos **&#8212;** , **&#9723;** y **X** en la parte superior derecha para minimizar, maximizar y cerrar el panel. Para obtener más información sobre el uso de Azure Cloud Shell, consulte la [documentación de Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
 
-4. En el panel de PowerShell, escribe los siguientes comandos para clonar este repositorio:
+4. En el panel de PowerShell, introduce los siguientes comandos para clonar este repositorio:
 
     ```
     rm -r dp-203 -f
     git clone https://github.com/MicrosoftLearning/dp-203-azure-data-engineer dp-203
     ```
 
-5. Una vez clonado el repositorio, escribe los siguientes comandos para cambiar a la carpeta de este laboratorio y ejecutar el script **setup.ps1** que contiene:
+5. Una vez clonado el repositorio, escribe los siguientes comandos para cambiar a la carpeta de este laboratorio y ejecuta el script **setup.ps1** que contiene:
 
     ```
     cd dp-203/Allfiles/labs/27
@@ -50,13 +52,13 @@ En este ejercicio, usarás un script para aprovisionar un área de trabajo de Az
 
 Puedes crear cuadernos en tu área de trabajo de Azure Databricks para ejecutar código escrito en diversos lenguajes de programación. En este ejercicio, importarás un cuaderno existente que contiene un poco de código Python.
 
-1. En Azure Portal, ve al grupo de recursos **dp203-*xxxxxxx*** que creó el script que ejecutaste.
-2. Selecciona el recurso Azure Databricks Service **databricks*xxxxxxx***.
-3. En la página **Información general** de **databricks*xxxxxxx***, usa el botón **Iniciar área de trabajo** para abrir el área de trabajo de Azure Databricks en una nueva pestaña del explorador; inicie sesión si se solicita.
-4. Si se muestra el mensaje **¿Cuál es el proyecto de datos actual?**, selecciona **Finalizar** para cerrarlo. Después, visualiza el portal del área de trabajo de Azure Databricks y observa que la barra lateral del lado izquierdo contiene iconos para las distintas tareas que puede realizar.
+1. En Azure Portal, ve al grupo de recursos ** dp203-*xxxxxxx*** que ha creado el script (o el grupo de recursos que contiene el área de trabajo de Azure Databricks existente)
+1. Selecciona el recurso de Azure Databricks Service (denominado **databricks*xxxxxxx*** si has usado el script de instalación para crearlo).
+1. En la página **Información general** del área de trabajo, usa el botón **Inicio del área de trabajo** para abrir el área de trabajo de Azure Databricks en una nueva pestaña del explorador; inicia sesión si se solicita.
 
-    >**Sugerencia**: al usar el portal del área de trabajo de Databricks, se pueden mostrar varias sugerencias y notificaciones. Descártalas y sigue las instrucciones proporcionadas para completar las tareas de este ejercicio.
+    > **Sugerencia**: al usar el portal del área de trabajo de Databricks, se pueden mostrar varias sugerencias y notificaciones. Descarta estos elementos y sigue las instrucciones proporcionadas para completar las tareas de este ejercicio.
 
+1. Visualiza el portal del área de trabajo de Azure Databricks y observa que la barra lateral del lado izquierdo contiene iconos para las distintas tareas que puedes realizar.
 1. En la barra de menús de la izquierda, selecciona el **Área de trabajo**. Después, selecciona la carpeta **⌂ Inicio**.
 1. En la parte superior de la página, en el menú **⋮** junto a tu nombre de usuario, selecciona **Importar**. A continuación, en el cuadro de diálogo **Importar**, selecciona **URL** e importeael cuaderno de `https://github.com/MicrosoftLearning/dp-203-azure-data-engineer/raw/master/Allfiles/labs/27/Process-Data.ipynb`
 1. Revisa el contenido del cuaderno, que incluye algunas celdas de código Python para lo siguiente:
@@ -80,7 +82,7 @@ Para usar Azure Databricks desde una canalización de Azure Data Factory, necesi
 ### Crear un servicio vinculado en Azure Data Factory
 
 1. Vuelve a Azure Portal y, en el grupo de recursos **dp203-*xxxxxxx***, selecciona el recurso **adf*xxxxxxx*** de Azure Data Factory.
-2. En la página **Información general**, selecciona **Iniciar Studio** para abrir Azure Data Factory Studio. Inicie sesión si se le pide.
+2. En la página **Información general**, selecciona **Iniciar Studio** para abrir Azure Data Factory Studio. Inicie sesión si se le solicita hacerlo.
 3. En Azure Data Factory Studio, usa el icono **>>** para expandir el panel de navegación de la izquierda. Después, selecciona la página **Administrar**.
 4. En la página **Administrar**, en la pestaña **Servicios vinculados**, selecciona **+ Nuevo** para agregar un nuevo servicio vinculado.
 5. En el panel **Nuevo servicio vinculado**, selecciona la pestaña **Procesar** en la parte superior. Después, selecciona **Azure Databricks**.
@@ -94,8 +96,8 @@ Para usar Azure Databricks desde una canalización de Azure Data Factory, necesi
     - **Seleccionar clúster**: nuevo clúster de trabajo
     - **Dirección URL del área de trabajo de Databricks**: *configurado automáticamente a la dirección URL de tu área de trabajo de Databricks*
     - **Tipo de autenticación**: token de acceso
-    - **Token de acceso**: *pega tu token de acceso*
-    - **Versión del clúster**: 12.2 LTS (Scala 2.12, Spark 3.2.2)
+    - **** Token de acceso: *pega el token de acceso.*
+    - **Versión del clúster**: 13.3 LTS (Spark 3.4.1, Scala 2.12)
     - **Tipo de nodo de clúster**: Standard_DS3_v2
     - **Versión de Python**: 3
     - **Opciones de trabajador**: fijas

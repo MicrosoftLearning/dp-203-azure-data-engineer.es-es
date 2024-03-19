@@ -18,16 +18,18 @@ Necesitarás una [suscripción de Azure](https://azure.microsoft.com/free) en la
 
 En este ejercicio, necesitarás un área de trabajo de Azure Databricks de nivel Premium.
 
-1. En un explorador, inicia sesión en [Azure Portal](https://portal.azure.com) en `https://portal.azure.com`.
-2. Usa el botón **[\>_]** situado a la derecha de la barra de búsqueda en la parte superior de la página para crear un nuevo Cloud Shell en Azure Portal, para lo que deberás seleccionar un entorno de ***PowerShell*** y crear almacenamiento si es necesario. Cloud Shell proporciona una interfaz de línea de comandos en un panel situado en la parte inferior de Azure Portal, como se muestra a continuación:
+> **Sugerencia**: si ya tienes un área de espacio de trabajo de Azure Databricks *Premium* o de *Evaluación*, puedes omitir este procedimiento.
+
+1. En un explorador web, inicia sesión en [Azure Portal](https://portal.azure.com) en `https://portal.azure.com`.
+2. Usa el botón **[\>_]** a la derecha de la barra de búsqueda en la parte superior de la página para crear un nuevo Cloud Shell en Azure Portal, selecciona un entorno de ***PowerShell*** y crea almacenamiento si se te solicita. Cloud Shell proporciona una interfaz de línea de comandos en un panel situado en la parte inferior de Azure Portal, como se muestra a continuación:
 
     ![Azure Portal con un panel de Cloud Shell](./images/cloud-shell.png)
 
-    > **Nota**: si has creado previamente un Cloud Shell que usa un entorno de *Bash*, usa el menú desplegable situado en la parte superior izquierda del panel de Cloud Shell para cambiarlo a ***PowerShell***.
+    > **Nota**: Si creaste anteriormente un Cloud Shell que usa un entorno de *Bash*, usa el menú desplegable situado en la parte superior izquierda del panel de Cloud Shell para cambiarlo a ***PowerShell***.
 
 3. Tenga en cuenta que puede cambiar el tamaño de Cloud Shell arrastrando la barra de separación en la parte superior del panel, o usando los iconos **&#8212;** , **&#9723;** y **X** en la parte superior derecha para minimizar, maximizar y cerrar el panel. Para obtener más información sobre el uso de Azure Cloud Shell, consulte la [documentación de Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
 
-4. En el panel de PowerShell, escribe los siguientes comandos para clonar este repositorio:
+4. En el panel de PowerShell, introduce los siguientes comandos para clonar este repositorio:
 
     ```
     rm -r dp-203 -f
@@ -48,11 +50,11 @@ En este ejercicio, necesitarás un área de trabajo de Azure Databricks de nivel
 ## Visualización e inicio de una instancia de un almacén de SQL
 
 1. Cuando se haya implementado el recurso del área de trabajo de Azure Databricks, ve a él en Azure Portal.
-2. En la página **Información general** del área de trabajo de Azure Databricks, usa el botón **Iniciar área de trabajo** para abrir el área de trabajo de Azure Databricks en una nueva pestaña del explorador; inicie sesión si se solicita.
-3. Si aparece un mensaje **¿Cuál es el proyecto de datos actual?**, selecciona **Finalizar** para cerrarlo. A continuación, ve el portal del área de trabajo de Azure Databricks y observa que la barra lateral del lado izquierdo contiene los nombres de las categorías de tareas.
+1. En la página **Información general** del área de trabajo de Azure Databricks, usa el botón **Iniciar área de trabajo** para abrir el área de trabajo de Azure Databricks en una nueva pestaña del explorador; inicia sesión si se solicita.
 
-    >**Sugerencia**: al usar el portal del área de trabajo de Databricks, se pueden mostrar varias sugerencias y notificaciones. Descarta estos elementos y sigue las instrucciones proporcionadas para completar las tareas de este ejercicio.
+    > **Sugerencia**: al usar el portal del área de trabajo de Databricks, se pueden mostrar varias sugerencias y notificaciones. Descarta estos elementos y sigue las instrucciones proporcionadas para completar las tareas de este ejercicio.
 
+1. Visualiza el portal del área de trabajo de Azure Databricks y observa que la barra lateral del lado izquierdo contiene los nombres de las categorías de tareas.
 1. En la barra lateral, en **SQL**, selecciona **Almacenes de SQL**.
 1. Observa que el área de trabajo ya incluye una instancia de Almacén de SQL denominada **Almacén de inicio**.
 1. En el menú **Acciones** (**⁝**) del Almacén de SQL, selecciona **Editar**. Después, establece la propiedad **Tamaño del clúster** en **2X-Small** y guarda los cambios.
@@ -106,17 +108,15 @@ Guardar una consulta facilita recuperar de nuevo los mismos datos más adelante.
 1. Haz clic en **(+) Nuevo** en la barra lateral y luego selecciona **Panel**.
 2. En el cuadro de diálogo **Nuevo panel**, escribe el nombre **Productos de Adventure Works** y selecciona **Guardar**.
 3. En el panel **Productos** de Adventure Works, en la lista desplegable **Agregar**, selecciona **Visualización**.
-4. En el cuadro de diálogo **Agregar widget de visualización**, selecciona la consulta **Productos y categorías**. Después, selecciona **Crear nueva visualización** y establece el título en **Productos por categoría**. y selecciona **Crear visualización**.
+4. En el cuadro de diálogo **Agregar widget de visualización**, selecciona la consulta **Productos y categorías**. Luego selecciona **Crear nueva visualización**, establece el título en **Productos por categoría** y selecciona **Crear visualización**.
 5. En el editor de visualización, establece las siguientes propiedades:
     - **Tipo de visualización**: barra
     - **Gráfico horizontal**: seleccionado
     - **Columna Y**: categoría
     - **Columnas X**: Id. de producto: Recuento
-    - **Agrupar por**: categoría
-    - **Posición de la leyenda**: automático (flexible)
-    - **Orden de los elementos de leyenda**: normal
-    - **Apilamiento**: pila
-    - **Normalizar valores en porcentaje**: <u>no</u> seleccionado
+    - **Agrupar por**: *deja en blanco*
+    - **Apilamiento**: deshabilitado
+    - **Normalizar valores en porcentaje**: <u>no </u>seleccionado
     - **Valores que faltan y NULL**: no mostrar en el gráfico
 
 6. Guarda la visualización y visualízala en el panel.
@@ -134,4 +134,4 @@ Ahora que has terminado de explorar Almacenes de SQL en Azure Databricks, deber�
 4. En la parte superior de la página **Información general** del grupo de recursos, seleccione **Eliminar grupo de recursos**.
 5. Escriba el nombre del grupo de recursos para confirmar que quiere eliminarlo y seleccione **Eliminar**.
 
-    Después de unos minutos, tu grupo de recursos y el grupo de recursos del área de trabajo administrada asociado se eliminarán.
+    Después de unos minutos, tu grupo de recursos y el grupo de recursos del área de trabajo administrada asociada a él se eliminarán.

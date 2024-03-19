@@ -21,15 +21,15 @@ Necesitarás una [suscripción](https://azure.microsoft.com/free) de Azure en la
 En este ejercicio, usarás Microsoft Purview para realizar un seguimiento de los recursos y el linaje de datos en un área de trabajo de Azure Synapse Analytics. Empezarás con un script para aprovisionar estos recursos en tu suscripción de Azure.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) en `https://portal.azure.com`.
-2. Usa el botón **[\>_]** situado a la derecha de la barra de búsqueda en la parte superior de la página para crear una nueva instancia de Cloud Shell en Azure Portal, para lo que deberás seleccionar un entorno de ***Bash*** y crear almacenamiento si se solicita. Cloud Shell proporciona una interfaz de línea de comandos en un panel situado en la parte inferior de Azure Portal, como se muestra a continuación:
+2. Usa el botón **[\>_]** situado a la derecha de la barra de búsqueda en la parte superior de la página para crear una nueva instancia de Cloud Shell en Azure Portal, para lo que deberás seleccionar un entorno de ***PowerShell*** y crear almacenamiento si se solicita. Cloud Shell proporciona una interfaz de línea de comandos en un panel situado en la parte inferior de Azure Portal, como se muestra a continuación:
 
     ![Azure Portal con un panel de Cloud Shell](./images/cloud-shell.png)
 
-    > **Nota**: si has creado previamente un Cloud Shell que usa un entorno de *Bash*, usa el menú desplegable situado en la parte superior izquierda del panel de Cloud Shell para cambiarlo a ***PowerShell***.
+    > **Nota**: Si creaste anteriormente un Cloud Shell que usa un entorno de *Bash*, usa el menú desplegable situado en la parte superior izquierda del panel de Cloud Shell para cambiarlo a ***PowerShell***.
 
 3. Tenga en cuenta que puede cambiar el tamaño de Cloud Shell arrastrando la barra de separación en la parte superior del panel, o usando los iconos **&#8212;** , **&#9723;** y **X** en la parte superior derecha para minimizar, maximizar y cerrar el panel. Para obtener más información sobre el uso de Azure Cloud Shell, consulte la [documentación de Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
 
-4. En el panel de PowerShell, escribe los siguientes comandos para clonar este repositorio:
+4. En el panel de PowerShell, introduce los siguientes comandos para clonar este repositorio:
 
     ```
     rm -r dp-203 -f
@@ -301,7 +301,7 @@ La vista de **products_csv** de la base de datos **lakedb** se basa en un archiv
 
 1. En Synapse Studio, en la página **Integrar**, en el menú ****+, selecciona la herramienta **Copiar datos**.
 2. En la herramienta Copiar datos, selecciona **Tarea de copia integrada** y **Ejecutar una vez ahora**, y después selecciona **Siguiente**.
-3. En la página **Almacén de datos de origen**, en la lista **Conexión**, selecciona la conexión **synapse*xxxxxxx* - WorkspaceDefaultStorage** (que hace referencia al lago de datos del área de trabajo) y para el **archivo o carpeta**, busca el archivo **files/products/products.csv**. Seleccione **Siguiente**.
+3. En la página **Almacén de datos de origen**, en la lista **Conexión**, selecciona la conexión **synapse*xxxxxxx* - WorkspaceDefaultStorage** (que hace referencia al lago de datos del área de trabajo) y para el **archivo o carpeta**, busca el archivo **files/products/products.csv**. Luego, seleccione **Siguiente**.
 4. En la página **Configuración del formato de archivo**, selecciona **Detectar formato de texto**. Después, asegúrate de que se especifican las siguientes opciones antes de seleccionar **Siguiente**:
     - **Formato de archivo**: DelimitedText
     - **Delimitador de columna**: coma (,)
