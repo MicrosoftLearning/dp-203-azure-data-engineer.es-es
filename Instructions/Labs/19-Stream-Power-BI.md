@@ -27,7 +27,7 @@ En este ejercicio, necesitarás un área de trabajo de Azure Synapse Analytics c
 Usarás una combinación de un script de PowerShell y una plantilla de ARM para aprovisionar estos recursos.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) en `https://portal.azure.com`.
-2. Usa el botón **[\>_]** situado a la derecha de la barra de búsqueda en la parte superior de la página para crear una nueva instancia de Cloud Shell en Azure Portal, para lo que deberás seleccionar un entorno de ***PowerShell*** y crear un almacenamiento si se solicita. Cloud Shell proporciona una interfaz de línea de comandos en un panel situado en la parte inferior de Azure Portal, como se muestra a continuación:
+2. Usa el botón **[\>_]** situado a la derecha de la barra de búsqueda en la parte superior de la página para crear una nueva instancia de Cloud Shell en Azure Portal, para lo que deberás seleccionar un entorno de ***PowerShell*** y crear almacenamiento si se solicita. Cloud Shell proporciona una interfaz de línea de comandos en un panel situado en la parte inferior de Azure Portal, como se muestra a continuación:
 
     ![Captura de pantalla de Azure Portal con un panel de Cloud Shell.](./images/cloud-shell.png)
 
@@ -184,6 +184,6 @@ Si has terminado de explorar Azure Stream Analytics y Power BI, debes eliminar l
 3. En Azure Portal, en la página **Inicio**, seleccione **Grupos de recursos**.
 4. Selecciona el grupo de recursos **dp203-*xxxxxxx*** que contiene tus recursos de Azure Event Hub y Stream Analytics.
 5. En la parte superior de la página **Información general** del grupo de recursos, seleccione **Eliminar grupo de recursos**.
-6. Escribe el nombre del grupo de recursos **dp203-*xxxxxxx*** para confirmar que quieres eliminarlo y selecciona **Eliminar**.
+6. Especifica el nombre del grupo de recursos **dp203-*xxxxxxx*** para confirmar que quieres eliminarlo y selecciona **Eliminar**.
 
     Después de unos minutos, se eliminarán los recursos creados en este ejercicio.
