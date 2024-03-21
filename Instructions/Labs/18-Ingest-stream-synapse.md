@@ -6,7 +6,7 @@ lab:
 
 # Ingesta de datos en tiempo real con Azure Stream Analytics y Azure Synapse Analytics
 
-Las soluciones de análisis de datos suelen incluir un requisito para ingerir y procesar *flujos* de datos. El procesamiento de flujos difiere del procesamiento por lotes en que los flujos suelen ser *sin límites*; es decir, son orígenes continuos de datos que se deben procesar permanentemente en lugar de a intervalos fijos.
+Las soluciones de análisis de datos suelen incluir un requisito para ingerir y procesar *flujos* de datos. El procesamiento de secuencias difiere del procesamiento por lotes en que las secuencias suelen ser *sin límites*; es decir, son orígenes continuos de datos que se deben procesar perpetuamente en lugar de a intervalos fijos.
 
 Azure Stream Analytics proporciona un servicio en la nube que puedes usar para definir una *consulta* que opera en un flujo de datos de un origen de streaming, como Azure Event Hubs o Azure IoT Hub. Puedes usar una consulta de Azure Stream Analytics para ingerir el flujo de datos directamente en un almacén de datos para un análisis adicional, o para filtrar, agregar y resumir los datos basados en ventanas temporales.
 
@@ -20,16 +20,16 @@ Necesitará una [suscripción de Azure](https://azure.microsoft.com/free) en la 
 
 ## Aprovisionamiento de los recursos de Azure
 
-En este ejercicio, necesitarás un área de trabajo de Azure Synapse Analytics con acceso a Data Lake Storage y un grupo de SQL dedicado. También necesitarás un espacio de nombres de Azure Event Hubs al que se puedan enviar los datos del pedido de streaming.
+En este ejercicio, necesitarás un área de trabajo de Azure Synapse Analytics con acceso a Data Lake Storage y a un grupo de SQL dedicado. También necesitarás un espacio de nombres de Azure Event Hubs al que se puedan enviar los datos de pedidos de la secuencia.
 
 Usarás una combinación de un script de PowerShell y una plantilla de ARM para aprovisionar estos recursos.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) en `https://portal.azure.com`.
-2. Usa el botón **[\>_]** situado a la derecha de la barra de búsqueda en la parte superior de la página para crear un nuevo Cloud Shell en Azure Portal, para lo que deberás seleccionar un entorno de ***PowerShell*** y crear almacenamiento si es necesario. Cloud Shell proporciona una interfaz de línea de comandos en un panel situado en la parte inferior de Azure Portal, como se muestra a continuación:
+2. Usa el botón **[\>_]** situado a la derecha de la barra de búsqueda en la parte superior de la página para crear una nueva instancia de Cloud Shell en Azure Portal, para lo que deberás seleccionar un entorno de ***PowerShell*** y crear almacenamiento si se solicita. Cloud Shell proporciona una interfaz de línea de comandos en un panel situado en la parte inferior de Azure Portal, como se muestra a continuación:
 
     ![Azure Portal con un panel de Cloud Shell](./images/cloud-shell.png)
 
-    > **Nota**: Si creaste anteriormente un Cloud Shell que usa un entorno *Bash*, usa el menú desplegable de la parte superior izquierda del panel de Cloud Shell para cambiarlo a ***PowerShell***.
+    > **Nota**: Si creaste anteriormente un Cloud Shell que usa un entorno de *Bash*, usa el menú desplegable situado en la parte superior izquierda del panel de Cloud Shell para cambiarlo a ***PowerShell***.
 
 3. Tenga en cuenta que puede cambiar el tamaño de Cloud Shell arrastrando la barra de separación en la parte superior del panel, o usando los iconos **&#8212;** , **&#9723;** y **X** en la parte superior derecha para minimizar, maximizar y cerrar el panel. Para obtener más información sobre el uso de Azure Cloud Shell, consulte la [documentación de Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
 
@@ -40,7 +40,7 @@ Usarás una combinación de un script de PowerShell y una plantilla de ARM para 
     git clone https://github.com/MicrosoftLearning/dp-203-azure-data-engineer dp-203
     ```
 
-5. Una vez clonado el repositorio, escribe los siguientes comandos para cambiar a la carpeta de este ejercicio y ejecuta el script **setup.sh** que contiene:
+5. Una vez clonado el repositorio, escribe los siguientes comandos para cambiar a la carpeta de este ejercicio y ejecuta el script **setup.ps1** que contiene:
 
     ```
     cd dp-203/Allfiles/labs/18
@@ -48,9 +48,9 @@ Usarás una combinación de un script de PowerShell y una plantilla de ARM para 
     ```
 
 6. Si se solicita, elige la suscripción que quieres usar (esto solo ocurrirá si tienes acceso a varias suscripciones de Azure).
-7. Cuando se te solicite, escribe una contraseña adecuada que se establecerá para tu grupo Azure Synapse SQL.
+7. Cuando se te solicite, escribe una contraseña adecuada que se va a establecer para el grupo de SQL de Azure Synapse.
 
-    > **Nota**: Asegúrate de recordar la contraseña.
+    > **Nota**: Asegúrate de recordar esta contraseña.
 
 8. Espera a que se complete el script: normalmente tarda unos 15 minutos, pero en algunos casos puede tardar más. Mientras esperas, revisa el artículo [Le damos la bienvenida a Azure Stream Analytics](https://learn.microsoft.com/azure/stream-analytics/stream-analytics-introduction) en la documentación de Azure Stream Analytics.
 
@@ -93,8 +93,8 @@ Comencemos por ingerir un flujo de datos directamente en una tabla de un grupo d
         - **Cuentas de almacenamiento**: selecciona la cuenta de almacenamiento **datalake*xxxxxxx***
         - **Modo de autenticación**: cadena de conexión.
         - **Proteger datos privados en la cuenta de almacenamiento**: seleccionado
-    - **Etiquetas**:
-        - *Ninguna*
+    - **Etiquetas:**
+        - *Ninguno*
 3. Espera a que finalice la implantación y después ve al recurso del trabajo de Stream Analytics implementado.
 
 ### Crear una entrada para el flujo de datos de eventos
@@ -181,8 +181,8 @@ Hasta ahora, has visto cómo usar un trabajo de Stream Analytics para ingerir me
         - **Cuentas de almacenamiento**: selecciona la cuenta de almacenamiento **datalake*xxxxxxx***
         - **Modo de autenticación**: cadena de conexión.
         - **Proteger datos privados en la cuenta de almacenamiento**: seleccionado
-    - **Etiquetas**:
-        - *Ninguna*
+    - **Etiquetas:**
+        - *Ninguno*
 
 2. Espera a que finalice la implantación y después ve al recurso del trabajo de Stream Analytics implementado.
 
