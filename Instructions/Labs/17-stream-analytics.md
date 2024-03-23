@@ -21,11 +21,11 @@ En este ejercicio, capturarás un flujo de datos de transacciones de ventas simu
 Usarás una combinación de un script de PowerShell y una plantilla de ARM para aprovisionar estos recursos.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) en `https://portal.azure.com`.
-2. Usa el botón **[\>_]** situado a la derecha de la barra de búsqueda en la parte superior de la página para crear un nuevo Cloud Shell en Azure Portal, para lo que deberás seleccionar un entorno de ***PowerShell*** y crear almacenamiento si es necesario. Cloud Shell proporciona una interfaz de línea de comandos en un panel situado en la parte inferior de Azure Portal, como se muestra a continuación:
+2. Usa el botón **[\>_]** situado a la derecha de la barra de búsqueda en la parte superior de la página para crear una nueva instancia de Cloud Shell en Azure Portal, para lo que deberás seleccionar un entorno de ***PowerShell*** y crear almacenamiento si se solicita. Cloud Shell proporciona una interfaz de línea de comandos en un panel situado en la parte inferior de Azure Portal, como se muestra a continuación:
 
     ![Azure Portal con un panel de Cloud Shell](./images/cloud-shell.png)
 
-    > **Nota**: Si creaste anteriormente un Cloud Shell que usa un entorno *Bash*, usa el menú desplegable en la parte superior izquierda del panel del Cloud Shell para cambiarlo a ***PowerShell***.
+    > **Nota**: Si creaste anteriormente un Cloud Shell que usa un entorno de *Bash*, usa el menú desplegable situado en la parte superior izquierda del panel de Cloud Shell para cambiarlo a ***PowerShell***.
 
 3. Tenga en cuenta que puede cambiar el tamaño de Cloud Shell arrastrando la barra de separación en la parte superior del panel, o usando los iconos **&#8212;** , **&#9723;** y **X** en la parte superior derecha para minimizar, maximizar y cerrar el panel. Para obtener más información sobre el uso de Azure Cloud Shell, consulte la [documentación de Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
 
@@ -36,7 +36,7 @@ Usarás una combinación de un script de PowerShell y una plantilla de ARM para 
     git clone https://github.com/MicrosoftLearning/dp-203-azure-data-engineer dp-203
     ```
 
-5. Una vez clonado el repositorio, escribe los siguientes comandos para cambiar a la carpeta de este ejercicio y ejecuta el script **setup.sh** que contiene:
+5. Una vez clonado el repositorio, escribe los siguientes comandos para cambiar a la carpeta de este ejercicio y ejecuta el script **setup.ps1** que contiene:
 
     ```
     cd dp-203/Allfiles/labs/17
@@ -76,8 +76,8 @@ Ahora ya puedes crear un trabajo de Azure Stream Analytics para procesar los dat
         - **Unidades de streaming**: 1
     - **Almacenamiento**:
         - **Agregar cuenta de almacenamiento**: no seleccionada
-    - **Etiquetas**:
-        - *Ninguna*
+    - **Etiquetas:**
+        - *Ninguno*
 2. Espera a que finalice la implantación y después ve al recurso del trabajo de Stream Analytics implementado.
 
 ## Crear una entrada para el flujo de eventos
