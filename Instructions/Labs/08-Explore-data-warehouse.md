@@ -32,14 +32,14 @@ En este ejercicio, usarás una combinación de un script de PowerShell y una pla
 4. En el panel de PowerShell, introduce los siguientes comandos para clonar este repositorio:
 
     ```
-    rm -r dp500 -f
-    git clone https://github.com/MicrosoftLearning/DP-500-Azure-Data-Analyst dp500
+    rm -r dp203 -f
+    git clone  https://github.com/MicrosoftLearning/Dp-203-azure-data-engineer dp203
     ```
 
 5. Una vez clonado el repositorio, escribe los siguientes comandos para cambiar a la carpeta de este laboratorio y ejecuta el script **setup.ps1** que contiene:
 
     ```
-    cd dp500/Allfiles/03
+    cd dp203/Allfiles/labs/08
     ./setup.ps1
     ```
 
