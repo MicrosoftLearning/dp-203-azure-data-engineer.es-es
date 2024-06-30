@@ -39,7 +39,7 @@ En este ejercicio usarás una combinación de un script de PowerShell y una plan
 5. Una vez clonado el repositorio, escribe los siguientes comandos para cambiar a la carpeta de este laboratorio y ejecuta el script **setup.ps1** que contiene:
 
     ```
-    cd dp203/Allfiles/02
+    cd dp203/Allfiles/labs/02
     ./setup.ps1
     ```
 
