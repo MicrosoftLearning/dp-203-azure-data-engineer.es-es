@@ -54,7 +54,7 @@ En este ejercicio, usarás una combinación de un script de PowerShell y una pla
 
 *Synapse Studio* es un portal basado en web en el que puedes administrar y trabajar con los recursos del área de trabajo de Azure Synapse Analytics.
 
-1. Cuando el script de instalación ha terminado de ejecutarse, en Azure Portal, verás el grupo de recursos **dp203-*xxxxxxx*** que se creó y observarás que este grupo de recursos contiene el área de trabajo de Synapse, una cuenta de almacenamiento para el lago de datos, un grupo de Apache Spark, un grupo de Data Explorer y un grupo de SQL dedicado.
+1. Cuando el script de instalación ha terminado de ejecutarse, en Azure Portal, verás el grupo de recursos **dp203-*xxxxxxx*** que se creó y observarás que este grupo de recursos contiene el área de trabajo de Synapse, una cuenta de almacenamiento para el lago de datos, un grupo de Apache Spark y un grupo de SQL dedicado.
 2. Selecciona tu área de trabajo de Synapse y, en tu página **Información general**, en la tarjeta **Abrir Synapse Studio**, selecciona **Abrir** para abrir Synapse Studio en una nueva pestaña del explorador. Synapse Studio es una interfaz web que puedes usar para trabajar con tu área de trabajo de Synapse Analytics.
 3. En el lado izquierdo de Synapse Studio, use el icono **&rsaquo;&rsaquo;** para expandir el menú; esto muestra las distintas páginas de Synapse Studio que usará para administrar recursos y realizar tareas de análisis de datos, como se muestra aquí:
 
