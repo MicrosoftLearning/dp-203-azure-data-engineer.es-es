@@ -18,25 +18,25 @@ Necesitará una [suscripción de Azure](https://azure.microsoft.com/free) en la 
 
 Necesitarás un área de trabajo de Azure Synapse Analytics con acceso a Data Lake Storage y un grupo de Apache Spark que puedes usar para consultar y procesar archivos en el lago de datos.
 
-En este ejercicio, usarás una combinación de un script PowerShell y una plantilla ARM para aprovisionar un área de trabajo de Azure Synapse Analytics.
+En este ejercicio usarás una combinación de un script de PowerShell y una plantilla de ARM para aprovisionar un área de trabajo de Azure Synapse Analytics.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) en `https://portal.azure.com`.
-2. Usa el botón **[\>_]** a la derecha de la barra de búsqueda en la parte superior de la página para crear un nuevo Cloud Shell en Azure portal, seleccionando un entorno ***PowerShell*** y creando almacenamiento si se te solicita. Cloud Shell proporciona una interfaz de línea de comandos en un panel situado en la parte inferior de Azure Portal, como se muestra a continuación:
+2. Usa el botón **[\>_]** situado a la derecha de la barra de búsqueda en la parte superior de la página para crear una nueva instancia de Cloud Shell en Azure Portal, para lo que deberás seleccionar un entorno de ***PowerShell*** y crear almacenamiento si se solicita. Cloud Shell proporciona una interfaz de línea de comandos en un panel situado en la parte inferior de Azure Portal, como se muestra a continuación:
 
     ![Azure Portal con un panel de Cloud Shell](./images/cloud-shell.png)
 
-    > **Nota**: Si creaste anteriormente un Cloud Shell que usa un entorno *Bash*, usa el menú desplegable de la parte superior izquierda del panel de Cloud Shell para cambiarlo a ***PowerShell***.
+    > **Nota**: si creaste anteriormente un Cloud Shell que usa un entorno de *Bash*, usa el menú desplegable situado en la parte superior izquierda del panel de Cloud Shell para cambiarlo a ***PowerShell***.
 
-3. Tenga en cuenta que puede cambiar el tamaño de Cloud Shell arrastrando la barra de separación en la parte superior del panel, o usando los iconos **&#8212;** , **&#9723;** y **X** en la parte superior derecha para minimizar, maximizar y cerrar el panel. Para obtener más información sobre el uso de Azure Cloud Shell, consulte la [documentación de Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
+3. Ten en cuenta que puedes cambiar el tamaño de Cloud Shell arrastrando la barra de separación en la parte superior del panel, o usando los iconos **&#8212;** , **&#9723;** y **X** en la parte superior derecha para minimizar, maximizar y cerrar el panel. Para obtener más información sobre el uso de Azure Cloud Shell, consulta la [documentación de Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
 
-4. En el panel de PowerShell, especifica los siguientes comandos para clonar este repositorio:
+4. En el panel de PowerShell, esscribe los siguientes comandos para clonar este repositorio:
 
     ```
     rm -r dp-203 -f
     git clone https://github.com/MicrosoftLearning/dp-203-azure-data-engineer dp-203
     ```
 
-5. Una vez clonado el repositorio, especifica los siguientes comandos para cambiar a la carpeta de este ejercicio y ejecutar el script **setup.ps1** que contiene:
+5. Una vez clonado el repositorio, escribe los siguientes comandos para cambiar a la carpeta de este ejercicio y ejecutar el script **setup.ps1** que contiene:
 
     ```
     cd dp-203/Allfiles/labs/07
@@ -44,9 +44,9 @@ En este ejercicio, usarás una combinación de un script PowerShell y una planti
     ```
 
 6. Si se solicita, elige la suscripción que quieres usar (esto solo ocurrirá si tienes acceso a varias suscripciones de Azure).
-7. Cuando se te solicite, especifica una contraseña adecuada para tu grupo de Azure Synapse SQL.
+7. Cuando se te solicite, escribe una contraseña adecuada que se va a establecer para el grupo de SQL de Azure Synapse.
 
-    > **Nota**: Asegúrate de recordar la contraseña.
+    > **Nota**: Asegúrate de recordar esta contraseña.
 
 8. Espera a que se complete el script: normalmente tarda unos 10 minutos, pero en algunos casos puede tardar más. Mientras esperas, revisa el artículo [Qué es Delta Lake](https://docs.microsoft.com/azure/synapse-analytics/spark/apache-spark-what-is-delta-lake) de la documentación de Azure Synapse Analytics.
 
@@ -58,8 +58,8 @@ El script aprovisiona un área de trabajo de Azure Synapse Analytics y una cuent
 
 1. Una vez completado el script, en Azure Portal, ve al grupo de recursos **dp203-*xxxxxxx*** que creaste y selecciona tu área de trabajo de Synapse.
 2. En la página **Información general** de tu área de trabajo de Synapse, en la tarjeta **Abrir Synapse Studio**, selecciona **Abrir** para abrir Synapse Studio en una nueva pestaña del explorador e inicia sesión si se te solicita.
-3. En el lado izquierdo de Synapse Studio, usa el icono **&rsaquo;&rsaquo;** para expandir el menú, lo que revelará las diferentes páginas dentro de Synapse Studio que usarás para administrar recursos y realizar tareas de análisis de datos.
-4. En la página **Datos**, consulta la pestaña **Vinculado** y comprueba que tu área de trabajo incluye un vínculo a tu cuenta de almacenamiento de Azure Data Lake Storage Gen2, que debería tener un nombre similar a **synapse*xxxxxxx* (Primary: datalake*xxxxxxx*)**.
+3. En el lado izquierdo de Synapse Studio, usa el icono **&rsaquo;&rsaquo;** para expandir el menú. Esta acción mostrará las diferentes páginas de Synapse Studio que usarás para administrar recursos y realizar tareas de análisis de datos.
+4. En la página **Datos**, consulta la pestaña **Vinculado** y comprueba que el área de trabajo incluye un vínculo a la cuenta de almacenamiento de Azure Data Lake Storage Gen2, que debe tener un nombre similar a **synapse*xxxxxxx* (Primary - datalake*xxxxxxx*)**.
 5. Expande tu cuenta de almacenamiento y comprueba que contiene un contenedor del sistema de archivos denominado **files**.
 6. Selecciona el contenedor **files** y observa que contiene una carpeta denominada **products**. Esta carpeta contiene los datos con los que vas a trabajar en este ejercicio.
 7. Abre la carpeta **products** y observa que contiene un archivo denominado **products.csv**.
@@ -426,4 +426,4 @@ Si ha terminado de explorar Azure Synapse Analytics, debe eliminar los recursos 
 4. En la parte superior de la página **Información general** del grupo de recursos, seleccione **Eliminar grupo de recursos**.
 5. Especifica el nombre del grupo de recursos **dp203-*xxxxxxx*** para confirmar que quieres eliminarlo y selecciona **Eliminar**.
 
-    Después de unos minutos, tu grupo de recursos del área de trabajo de Azure Synapse y el grupo de recursos del área de trabajo administrada asociado a él se eliminarán.
+    Después de unos minutos, se eliminarán el grupo de recursos de área de trabajo de Azure Synapse y el grupo de recursos de área de trabajo administrado asociado a él.

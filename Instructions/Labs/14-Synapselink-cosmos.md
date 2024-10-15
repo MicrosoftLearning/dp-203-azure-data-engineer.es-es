@@ -19,22 +19,22 @@ Necesitará una [suscripción de Azure](https://azure.microsoft.com/free) en la 
 Para explorar Azure Synapse Link para Azure Cosmos DB, necesitarás un área de trabajo de Azure Synapse Analytics y una cuenta de Azure Cosmos DB. En este ejercicio, usarás una combinación de un script de PowerShell y una plantilla de ARM para aprovisionar estos recursos en la suscripción de Azure.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) en `https://portal.azure.com`.
-2. Usa el botón **[\>_]** situado a la derecha de la barra de búsqueda en la parte superior de la página para crear un nuevo Cloud Shell en Azure Portal, para lo que deberás seleccionar un entorno de ***PowerShell*** y crear almacenamiento si es necesario. Cloud Shell proporciona una interfaz de línea de comandos en un panel situado en la parte inferior de Azure Portal, como se muestra a continuación:
+2. Usa el botón **[\>_]** situado a la derecha de la barra de búsqueda en la parte superior de la página para crear una nueva instancia de Cloud Shell en Azure Portal, para lo que deberás seleccionar un entorno de ***PowerShell*** y crear almacenamiento si se solicita. Cloud Shell proporciona una interfaz de línea de comandos en un panel situado en la parte inferior de Azure Portal, como se muestra a continuación:
 
     ![Azure Portal con un panel de Cloud Shell](./images/cloud-shell.png)
 
-    > **Nota**: Si anteriormente creaste un Cloud Shell que usa un entorno de *Bash*, usa el menú desplegable situado en la parte superior izquierda del panel de Cloud Shell para cambiarlo a ***PowerShell***.
+    > **Nota**: si creaste anteriormente un Cloud Shell que usa un entorno de *Bash*, usa el menú desplegable situado en la parte superior izquierda del panel de Cloud Shell para cambiarlo a ***PowerShell***.
 
-3. Tenga en cuenta que puede cambiar el tamaño de Cloud Shell arrastrando la barra de separación en la parte superior del panel, o usando los iconos **&#8212;** , **&#9723;** y **X** en la parte superior derecha para minimizar, maximizar y cerrar el panel. Para obtener más información sobre el uso de Azure Cloud Shell, consulte la [documentación de Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
+3. Ten en cuenta que puedes cambiar el tamaño de Cloud Shell arrastrando la barra de separación en la parte superior del panel, o usando los iconos **&#8212;** , **&#9723;** y **X** en la parte superior derecha para minimizar, maximizar y cerrar el panel. Para obtener más información sobre el uso de Azure Cloud Shell, consulta la [documentación de Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
 
-4. En el panel de PowerShell, escribe los siguientes comandos para clonar este repositorio:
+4. En el panel de PowerShell, esscribe los siguientes comandos para clonar este repositorio:
 
     ```
     rm -r dp-203 -f
     git clone https://github.com/MicrosoftLearning/dp-203-azure-data-engineer dp-203
     ```
 
-5. Una vez clonado el repositorio, escribe los siguientes comandos para cambiar a la carpeta de este ejercicio y ejecuta el script **setup.ps1** que contiene:
+5. Una vez clonado el repositorio, escribe los siguientes comandos para cambiar a la carpeta de este ejercicio y ejecutar el script **setup.ps1** que contiene:
 
     ```
     cd dp-203/Allfiles/labs/14
@@ -42,7 +42,7 @@ Para explorar Azure Synapse Link para Azure Cosmos DB, necesitarás un área de 
     ```
 
 6. Si se solicita, elige la suscripción que quieres usar (esto solo ocurrirá si tienes acceso a varias suscripciones de Azure).
-7. Cuando se solicite, escribe una contraseña adecuada que se va a establecer para el grupo de Azure Synapse SQL.
+7. Cuando se te solicite, escribe una contraseña adecuada que se va a establecer para el grupo de SQL de Azure Synapse.
 
     > **Nota**: Asegúrate de recordar esta contraseña.
 
@@ -172,7 +172,7 @@ Ahora estás listo para consultar la base de datos de Cosmos DB desde Azure Syna
 ### Consulta de Azure Cosmos DB desde un grupo de Spark
 
 1. En el panel **Datos**, selecciona el contenedor **Ventas** y, en el menú **...**, selecciona **Nuevo cuaderno** > **Cargar en DataFrame**.
-2. En la nueva pestaña **Cuaderno 1** que se abre, en la lista **Adjuntar a**, selecciona el grupo de Spark (**spark*xxxxxxx***). A continuación, usa el botón **▷ Ejecutar todo** para ejecutar todas las celdas del cuaderno (actualmente solo hay una).
+2. En la nueva pestaña **Cuaderno 1** que se abre, en la lista **Adjuntar a**, selecciona el grupo de Spark (**spark*xxxxxxx***). Después, usa el botón **▷ Ejecutar todo** para ejecutar todas las celdas del cuaderno (actualmente solo hay una).
 
     Dado que esta es la primera vez que has ejecutado código de Spark en esta sesión, se debe iniciar el grupo de Spark. Esto significa que la primera ejecución de la sesión puede tardar unos minutos. Las ejecuciones posteriores serán más rápidas.
 
@@ -404,6 +404,6 @@ Si ha terminado de explorar Azure Synapse Analytics, debe eliminar los recursos 
 2. En Azure Portal, en la página **Inicio**, seleccione **Grupos de recursos**.
 3. Selecciona el grupo de recursos **dp203-*xxxxxxx*** del área de trabajo de Synapse Analytics (no el grupo de recursos administrado) y comprueba que contiene el área de trabajo de Synapse, la cuenta de almacenamiento y el grupo de Spark del área de trabajo así como tu cuenta de Azure Cosmos DB.
 4. En la parte superior de la página **Información general** del grupo de recursos, seleccione **Eliminar grupo de recursos**.
-5. Escribe el nombre del grupo de recursos **dp203-*xxxxxxx*** para confirmar que quieres eliminarlo y selecciona **Eliminar**.
+5. Especifica el nombre del grupo de recursos **dp203-*xxxxxxx*** para confirmar que quieres eliminarlo y selecciona **Eliminar**.
 
-    Después de unos minutos, tu grupo de recursos del área de trabajo de Azure Synapse y el grupo de recursos del área de trabajo administrada asociado se eliminarán.
+    Después de unos minutos, se eliminarán el grupo de recursos de área de trabajo de Azure Synapse y el grupo de recursos de área de trabajo administrado asociado a él.
