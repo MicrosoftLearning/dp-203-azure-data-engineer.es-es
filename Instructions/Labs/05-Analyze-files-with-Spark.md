@@ -55,8 +55,8 @@ El script aprovisiona un área de trabajo de Azure Synapse Analytics y una cuent
 
 ### Visualización de archivos en el lago de datos
 
-1. Una vez completado el script, en Azure Portal, ve al grupo de recursos **dp500-*xxxxxxx** que creó y selecciona tu área de trabajo de Synapse.
-2. En la página **Información general** del área de trabajo de Synapse, en la tarjeta **Abrir Synapse Studio**, selecciona **Abrir** para abrir Synapse Studio en una nueva pestaña del explorador; inicia sesión si se te solicita.
+1. Una vez completado el script, en Azure Portal, ve al grupo de recursos **dp203-*xxxxxxx*** que creó y selecciona el área de trabajo de Synapse.
+2. En la página **Información general** de tu área de trabajo de Synapse, en la tarjeta **Abrir Synapse Studio**, selecciona **Abrir** para abrir Synapse Studio en una nueva pestaña del explorador e inicia sesión si se te solicita.
 3. En el lado izquierdo de Synapse Studio, usa el icono **&rsaquo;&rsaquo;** para expandir el menú. Esta acción mostrará las diferentes páginas de Synapse Studio que usarás para administrar recursos y realizar tareas de análisis de datos.
 4. En la página **Administrar**, selecciona la pestaña **Grupos de Apache Spark** y observa que un grupo de Spark con un nombre similar a **spark*xxxxxxx*** se ha aprovisionado en el área de trabajo. Más adelante usarás este grupo de Spark para cargar y analizar datos de archivos en el almacenamiento de lago de datos para el área de trabajo.
 5. En la página **Datos**, consulta la pestaña **Vinculado** y comprueba que el área de trabajo incluye un vínculo a la cuenta de almacenamiento de Azure Data Lake Storage Gen2, que debe tener un nombre similar a **synapse*xxxxxxx* (Primary - datalake*xxxxxxx*)**.
@@ -335,11 +335,11 @@ Proverbialmente, una imagen vale más que mil palabras, y un gráfico suele ser 
     plt.show()
     ```
 
-8. Vuelva a ejecutar la celda de código y observe los resultados. La figura determina la forma y el tamaño del trazado.
+8. Vuelve a ejecutar la celda de código y observa los resultados. La figura determina la forma y el tamaño del trazado.
 
     Una figura puede contener varios subtrazados, cada uno en su propio *eje*.
 
-9. Modifique el código para trazar el gráfico de la siguiente manera:
+9. Modifica el código para trazar el gráfico de la siguiente manera:
 
     ```Python
     # Clear the plot area
@@ -424,8 +424,8 @@ Si ha terminado de explorar Azure Synapse Analytics, debe eliminar los recursos 
 
 1. Cierre la pestaña del explorador de Synapse Studio y vuelva a Azure Portal.
 2. En Azure Portal, en la página **Inicio**, seleccione **Grupos de recursos**.
-3. Selecciona el grupo de recursos **dp500-*xxxxxxx*** para tu área de trabajo de Synapse Analytics (no el grupo de recursos administrados) y verifica que contiene el área de trabajo de Synapse, la cuenta de almacenamiento y el grupo de Spark para tu área de trabajo.
+3. Selecciona el grupo de recursos **dp203-*xxxxxxx*** para tu área de trabajo de Synapse Analytics (no el grupo de recursos administrados) y verifica que contiene el área de trabajo de Synapse, la cuenta de almacenamiento y el grupo de Spark para tu área de trabajo.
 4. En la parte superior de la página **Información general** del grupo de recursos, seleccione **Eliminar grupo de recursos**.
-5. Escribe el nombre del grupo de recursos **dp500-*xxxxxxx*** para confirmar que quieres eliminarlo y selecciona **Eliminar**.
+5. Especifica el nombre del grupo de recursos **dp203-*xxxxxxx*** para confirmar que quieres eliminarlo y selecciona **Eliminar**.
 
-    Después de unos minutos, tu grupo de recursos del área de trabajo de Azure Synapse y el grupo de recursos del área de trabajo administrada asociada se eliminarán.
+    Después de unos minutos, se eliminarán el grupo de recursos de área de trabajo de Azure Synapse y el grupo de recursos de área de trabajo administrado asociado a él.

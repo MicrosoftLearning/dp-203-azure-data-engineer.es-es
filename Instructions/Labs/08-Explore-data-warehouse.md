@@ -56,7 +56,7 @@ En este laboratorio, el almacenamiento de datos se hospeda en un grupo de SQL de
 
 ### Inicio del grupo de SQL dedicado
 
-1. Una vez completado el script, en Azure Portal, ve al grupo de recursos **dp500-*xxxxxxx** que creó y selecciona tu área de trabajo de Synapse.
+1. Una vez completado el script, en Azure Portal, ve al grupo de recursos **dp203-*xxxxxxx*** que creó y selecciona el área de trabajo de Synapse.
 2. En la página **Información general** del área de trabajo de Synapse, en la tarjeta **Abrir Synapse Studio**, selecciona **Abrir** para abrir Synapse Studio en una nueva pestaña del explorador; inicia sesión si se te solicita.
 3. En el lado izquierdo de Synapse Studio, usa el icono **&rsaquo;&rsaquo;** para expandir el menú; se muestran las distintas páginas de Synapse Studio que usarás para administrar recursos y realizar tareas de análisis de datos.
 4. En la página **Administrar**, asegúrate de que la pestaña **Grupos de SQL** está seleccionada y después selecciona el grupo de SQL dedicado **sql*xxxxxxx*** y usa su icono **▷** para iniciarlo; confirma que deseas reanudarlo cuando se te solicite.
@@ -304,8 +304,8 @@ Si ha terminado de explorar Azure Synapse Analytics, debe eliminar los recursos 
 
 1. Cierre la pestaña del explorador de Synapse Studio y vuelva a Azure Portal.
 2. En Azure Portal, en la página **Inicio**, seleccione **Grupos de recursos**.
-3. Selecciona el grupo de recursos **dp500-*xxxxxxx** del área de trabajo de Synapse Analytics (no el grupo de recursos administrado) y comprueba que contiene el área de trabajo de Synapse, la cuenta de almacenamiento y el grupo de SQL dedicado para el área de trabajo.
+3. Selecciona el grupo de recursos **dp203-*xxxxxxx*** para tu área de trabajo de Synapse Analytics (no el grupo de recursos administrados) y verifica que contiene el área de trabajo de Synapse, la cuenta de almacenamiento y el grupo de SQL dedicado para tu área de trabajo.
 4. En la parte superior de la página **Información general** del grupo de recursos, seleccione **Eliminar grupo de recursos**.
-5. Escribe el nombre del grupo de recursos **dp500-*xxxxxxx*** para confirmar que quieres eliminarlo y selecciona **Eliminar**.
+5. Especifica el nombre del grupo de recursos **dp203-*xxxxxxx*** para confirmar que quieres eliminarlo y selecciona **Eliminar**.
 
-    Después de unos minutos, tu grupo de recursos del área de trabajo de Azure Synapse y el grupo de recursos del área de trabajo administrada asociada se eliminarán.
+    Después de unos minutos, se eliminarán el grupo de recursos de área de trabajo de Azure Synapse y el grupo de recursos de área de trabajo administrado asociado a él.
