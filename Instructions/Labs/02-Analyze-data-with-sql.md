@@ -306,7 +306,7 @@ Al definir un origen de datos externo en una base de datos, puedes usarlo para h
     WHERE orders.filepath(1) = '2019'
     ```
 
-### Crear una tabla externa
+### Creación de una tabla externa
 
 El origen de datos externo facilita el acceso a los archivos del lago de datos, pero la mayoría de los analistas de datos que usan SQL están acostumbrados a trabajar con tablas de una base de datos. Afortunadamente, también puedes definir formatos de archivo externos y tablas externas que encapsulan conjuntos de filas de archivos en tablas de base de datos.
 
