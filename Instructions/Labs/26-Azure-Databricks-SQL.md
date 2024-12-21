@@ -4,47 +4,39 @@ lab:
   ilt-use: Optional demo
 ---
 
-# Uso de un almacén de SQL en Azure Databricks
-
 SQL es un lenguaje estándar del sector para consultar y manipular datos. Muchos analistas de datos realizan análisis de datos mediante SQL para consultar tablas en una base de datos relacional. Azure Databricks incluye funcionalidad de SQL que se basa en tecnologías de Spark y Delta Lake para proporcionar una capa de base de datos relacional a través de archivos en un lago de datos.
 
 Este ejercicio debería tardar en completarse **30** minutos aproximadamente.
 
-## Antes de comenzar
-
-Necesitarás una [suscripción de Azure](https://azure.microsoft.com/free) en la que tengas acceso de nivel administrativo y cuota suficiente en al menos una región para aprovisionar una instancia del almacén de SQL de Azure Databricks.
-
 ## Aprovisiona un área de trabajo de Azure Databricks.
 
-En este ejercicio, necesitarás un área de trabajo de Azure Databricks de nivel Premium.
+> **Sugerencia**: si ya tienes un espacio de trabajo *premium* o de *prueba* Azure Databricks, puedes omitir este procedimiento y usar tu espacio de trabajo existente.
 
-> **Sugerencia**: si ya tienes un área de espacio de trabajo de Azure Databricks *Premium* o de *Evaluación*, puedes omitir este procedimiento.
+En este ejercicio, se incluye un script para aprovisionar una nueva área de trabajo de Azure Databricks. El script intenta crear un recurso de área de trabajo de Azure Databricks de nivel *Premium* en una región en la que la suscripción de Azure tiene cuota suficiente para los núcleos de proceso necesarios en este ejercicio, y da por hecho que la cuenta de usuario tiene permisos suficientes en la suscripción para crear un recurso de área de trabajo de Azure Databricks. Si se produjese un error en el script debido a cuota o permisos insuficientes, intenta [crear un área de trabajo de Azure Databricks de forma interactiva en Azure Portal](https://learn.microsoft.com/azure/databricks/getting-started/#--create-an-azure-databricks-workspace).
 
 1. En un explorador web, inicia sesión en [Azure Portal](https://portal.azure.com) en `https://portal.azure.com`.
 2. Usa el botón **[\>_]** a la derecha de la barra de búsqueda en la parte superior de la página para crear un nuevo Cloud Shell en Azure Portal, selecciona un entorno de ***PowerShell*** y crea almacenamiento si se te solicita. Cloud Shell proporciona una interfaz de línea de comandos en un panel situado en la parte inferior de Azure Portal, como se muestra a continuación:
 
     ![Azure Portal con un panel de Cloud Shell](./images/cloud-shell.png)
 
-    > **Nota**: si creaste anteriormente un Cloud Shell que usa un entorno de *Bash*, usa el menú desplegable situado en la parte superior izquierda del panel de Cloud Shell para cambiarlo a ***PowerShell***.
+    > **Nota**: Si ha creado previamente un cloud shell que usa un entorno de *Bash*, use el menú desplegable de la parte superior izquierda del panel de cloud shell para cambiarlo a ***PowerShell***.
 
-3. Ten en cuenta que puedes cambiar el tamaño de Cloud Shell arrastrando la barra de separación en la parte superior del panel, o usando los iconos **&#8212;** , **&#9723;** y **X** en la parte superior derecha para minimizar, maximizar y cerrar el panel. Para obtener más información sobre el uso de Azure Cloud Shell, consulta la [documentación de Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
+3. Tenga en cuenta que puede cambiar el tamaño de Cloud Shell arrastrando la barra de separación en la parte superior del panel, o usando los iconos **&#8212;** , **&#9723;** y **X** en la parte superior derecha para minimizar, maximizar y cerrar el panel. Para obtener más información sobre el uso de Azure Cloud Shell, consulta la [documentación de Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
 
 4. En el panel de PowerShell, introduce los siguientes comandos para clonar este repositorio:
 
     ```
-    rm -r dp-203 -f
-    git clone https://github.com/MicrosoftLearning/dp-203-azure-data-engineer dp-203
+    rm -r mslearn-databricks -f
+    git clone https://github.com/MicrosoftLearning/mslearn-databricks
     ```
 
-5. Una vez clonado el repositorio, escribe los siguientes comandos para cambiar a la carpeta de este laboratorio y ejecuta el script **setup.ps1** que contiene:
+5. Una vez clonado el repositorio, escribe el siguiente comando para ejecutar el script **setup.ps1**, que aprovisiona un área de trabajo de Azure Databricks en una región disponible:
 
     ```
-    cd dp-203/Allfiles/labs/26
-    ./setup.ps1
+    ./mslearn-databricks/setup.ps1
     ```
 
 6. Si se solicita, elige la suscripción que quieres usar (esto solo ocurrirá si tienes acceso a varias suscripciones de Azure).
-
 7. Espera a que se complete el script: normalmente puede tardar entre 5 y 10 minutos, pero en algunos casos puede tardar más. Mientras esperas, revisa el artículo [¿Qué es el almacenamiento de datos en Azure Databricks?](https://learn.microsoft.com/azure/databricks/sql/) en la documentación de Azure Databricks.
 
 ## Visualización e inicio de una instancia de un almacén de SQL
@@ -69,69 +61,50 @@ En este ejercicio, necesitarás un área de trabajo de Azure Databricks de nivel
 3. En el panel **Nueva consulta**, escribe el siguiente código SQL:
 
     ```sql
-    CREATE SCHEMA adventureworks;
+   CREATE DATABASE retail_db;
     ```
 
 4. Usa el botón **► Ejecutar (1000)** para ejecutar el código SQL.
-5. Cuando el código se haya ejecutado correctamente, en el panel **Explorador de esquema**, usa el botón Actualizar situado en la parte inferior del panel para actualizar la lista. A continuación, expande **hive_metastore** y **adventureworks** y observa que se ha creado la base de datos, pero no contiene tablas.
+5. Cuando el código se haya ejecutado correctamente, en el panel **Explorador de esquema**, usa el botón Actualizar situado en la parte superior del panel para actualizar la lista. Después amplía **hive_metastore** y **retail_db**, y observa que la base de datos se ha creado, pero no contiene tablas.
 
 Puedes usar la base de datos **predeterminada** para las tablas, pero al compilar un almacén de datos analíticos es mejor para crear bases de datos personalizadas para datos específicos.
 
 ## Creación de una tabla
 
-1. Descarga el archivo [**products.csv**](https://raw.githubusercontent.com/MicrosoftLearning/dp-203-azure-data-engineer/master/Allfiles/labs/26/data/products.csv) en el equipo local y guárdalo como **products.csv**.
-1. En el portal del área de trabajo de Azure Databricks, en la barra lateral, selecciona **(+) Nuevo** y después selecciona **Carga de archivos** y carga el archivo **products.csv** que has descargado en el equipo.
-1. En la página **Cargar datos**, selecciona el esquema **adventureworks** y establece el nombre de la tabla en **productos**. Después, selecciona **Crear tabla** en la esquina inferior izquierda de la página.
+1. Descarga el archivo [`products.csv`](https://raw.githubusercontent.com/MicrosoftLearning/mslearn-databricks/main/data/products.csv) en tu equipo local y guárdalo como **products.csv**.
+1. En el portal del área de trabajo de Azure Databricks, en la barra lateral, selecciona **(+) Nuevo** y después selecciona **Datos**.
+1. En la página **Agregar datos**, selecciona **Crear o modificar tabla** y carga el archivo **products.csv** que descargaste en el equipo.
+1. En la página **Crear o modificar tabla del archivo cargado**, selecciona el esquema **retail_db** y establece el nombre de la tabla en **products**. Después, selecciona **Crear tabla** en la esquina inferior derecha de la página.
 1. Cuando la tabla esté creada, revisa sus detalles.
 
 La capacidad de crear una tabla mediante la importación de datos desde un archivo facilita rellenar una base de datos. También puedes usar Spark SQL para crear tablas mediante código. Las propias tablas son definiciones de metadatos en la tienda de metadatos Hive y los datos que contienen se almacenan en formato Delta en el almacenamiento del sistema de archivos de Databricks (DBFS).
 
-## Creación de una consulta
-
-1. En la barra lateral, selecciona **(+) Nuevo** y luego selecciona **Consulta**.
-2. En el panel **Explorador de esquema** expande **hive_metastore** y **adventureworks** y comprueba que aparece la tabla **productos**.
-3. En el panel **Nueva consulta**, escribe el siguiente código SQL:
-
-    ```sql
-    SELECT ProductID, ProductName, Category
-    FROM adventureworks.products; 
-    ```
-
-4. Usa el botón **► Ejecutar (1000)** para ejecutar el código SQL.
-5. Una vez completada la consulta, revisa la tabla de resultados.
-6. Usa el botón **Guardar** situado en la parte superior derecha del editor de consultas para guardar la consulta como **Productos y categorías**.
-
-Guardar una consulta facilita recuperar de nuevo los mismos datos más adelante.
-
 ## Crear un panel
 
 1. Haz clic en **(+) Nuevo** en la barra lateral y luego selecciona **Panel**.
-2. En el cuadro de diálogo **Nuevo panel**, escribe el nombre **Productos de Adventure Works** y selecciona **Guardar**.
-3. En el panel **Productos** de Adventure Works, en la lista desplegable **Agregar**, selecciona **Visualización**.
-4. En el cuadro de diálogo **Agregar widget de visualización**, selecciona la consulta **Productos y categorías**. Luego selecciona **Crear nueva visualización**, establece el título en **Productos por categoría** y selecciona **Crear visualización**.
-5. En el editor de visualización, establece las siguientes propiedades:
-    - **Tipo de visualización**: barra
-    - **Gráfico horizontal**: seleccionado
-    - **Columna Y**: categoría
-    - **Columnas X**: Id. de producto: Recuento
-    - **Agrupar por**: *deja en blanco*
-    - **Apilamiento**: deshabilitado
-    - **Normalizar valores en porcentaje**: <u>no </u>seleccionado
-    - **Valores que faltan y NULL**: no mostrar en el gráfico
+2. Selecciona el nombre del nuevo panel y cámbialo a `Retail Dashboard`.
+3. En la pestaña **Datos**, selecciona **Crear desde SQL** y usa la consulta siguiente:
 
-6. Guarda la visualización y visualízala en el panel.
-7. Selecciona **Edición finalizada** para ver el panel como lo verán los usuarios.
+    ```sql
+   SELECT ProductID, ProductName, Category
+   FROM retail_db.products; 
+    ```
+
+4. Selecciona **Ejecutar** y, después, cambia el nombre del conjunto de datos sin título a `Products and Categories`.
+5. Selecciona la pestaña **Lienzo** y después selecciona **Agregar una visualización**.
+6. En el editor de visualización, establece las siguientes propiedades:
+    
+    - **Conjunto de datos**: Productos y categorías
+    - **Visualización**: barra
+    - **Eje X**: COUNT(ProductID)
+    - **Eje Y**: categoría
+
+7. Selecciona **Publicar** para ver el panel como lo verán los usuarios.
 
 Los paneles son una excelente manera de compartir tablas de datos y visualizaciones con usuarios profesionales. Puedes programar que los paneles se actualicen periódicamente y se envíen por correo electrónico a los suscriptores.
 
-## Eliminación de recursos de Azure Databricks
+## Limpiar
 
-Ahora que has terminado de explorar Almacenes de SQL en Azure Databricks, deberás eliminar los recursos que has creado para evitar costes innecesarios de Azure y liberar capacidad en la suscripción.
+En el portal de Azure Databricks, en la página **Almacenes SQL**, seleccione su almacén SQL y seleccione **&#9632; Detener** para apagarlo.
 
-1. Cierra la pestaña del explorador y vuelve a la pestaña de Azure Portal.
-2. En Azure Portal, en la página **Inicio**, seleccione **Grupos de recursos**.
-3. Selecciona el grupo de recursos que contiene el área de trabajo de Azure Databricks (no el grupo de recursos administrado).
-4. En la parte superior de la página **Información general** del grupo de recursos, seleccione **Eliminar grupo de recursos**.
-5. Escriba el nombre del grupo de recursos para confirmar que quiere eliminarlo y seleccione **Eliminar**.
-
-    Después de unos minutos, tu grupo de recursos y el grupo de recursos del área de trabajo administrada asociada a él se eliminarán.
+Si has terminado de explorar Azure Databricks, puedes eliminar los recursos que has creado para evitar costes innecesarios de Azure y liberar capacidad en la suscripción.
